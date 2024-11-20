@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.style.display="flex";
             modal.classList.add("show");            
             flecha.addEventListener('click', () => {
-                window.location.href = '../Juego3/game3.html';
+                window.location.href = '../juego3/game3.html';
                 let currentModule = parseInt(localStorage.getItem('currentModule')) || 1;
                 localStorage.setItem('currentModule', currentModule + 1);
             });

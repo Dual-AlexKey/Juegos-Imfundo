@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.add("show");
             arrowIcon.style.display = 'inline-block';
             arrowIcon.addEventListener('click', function() {
-                window.location.href = '../Juego2/game2.html';
+                window.location.href = '../juego2/game2.html';
             });
 
             setTimeout(() => {
