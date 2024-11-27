@@ -1,0 +1,511 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #FBF2F2; /* Color de fondo de la página */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('patron.png'); /* Ruta de la imagen de fondo con diseño */
+    opacity: 0.5; /* Opacidad inicial */
+    animation: animateBackground 1s linear infinite alternate; /* Animación del fondo */
+}
+
+@keyframes animateBackground {
+    0% {
+        opacity: 0.5; /* Opacidad inicial */
+        transform: translateY(0); /* Sin movimiento inicial */
+    }
+    100% {
+        opacity: 0.6; /* Opacidad final */
+        transform: translateY(-10px); /* Movimiento hacia arriba */
+    }
+}
+
+.lives {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Contai_Titulo {
+    background-image: linear-gradient(to right, #5f66e2, #414478);
+    border-radius: 0.4pc;
+    border: none;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 0 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: vibrarLogo 1s infinite alternate;
+}
+.sub_title{
+    animation: vibrarLogo 1s infinite alternate;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    animation: vibrarLogo 1s infinite alternate;
+}
+
+
+.card {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    position: relative;
+    font-size: 18px;
+    color: #f0f0f0; /* Default text color */
+    font-weight: bold;
+}
+
+.card span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.hidden {
+    background-color: #f0f0f0;
+}
+
+.card.revealed {
+    background-color: #fff;
+    border: 2px solid green;
+    color: black; /* Show text in black when revealed */
+}
+
+.card.matched {
+    background-color: #ccc;
+    border: 2px solid transparent;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    position: absolute;
+    background-color: #f0f0f0;/* Default to grayscale */
+    opacity: 0;
+    transition: filter 0.3s; /* Smooth transition for filter change */
+}
+
+.card.revealed img {
+    opacity: 1;
+}
+
+#mute-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: none;
+}
+
+#mute-icon:hover {
+    fill: #655d5d;
+}
+
+#sound-icon{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: block;
+}
+
+/* Estilos para el icono de flecha */
+#arrow-icon {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Animación para mover la flecha de izquierda a derecha */
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+    background-image: url('../imagen/fondoderrota.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    height: 200px;
+    color: white;
+    border-radius: 3cap;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1.5);
+}
+
+.icono-ayuda{
+    width: 80px;
+}
+
+.modal-buttons {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.modal-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #505050;
+    background-color: rgba(30, 68, 255, 0.747);
+    border-radius: 1cap;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', cursive;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
+
+.modal-buttons button:hover {
+    background-color: rgb(119, 217, 255);
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Estilos del modal */
+.modaldato {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 30px ;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo semi-transparente */
+}
+
+/* Estilos del modal centrado */
+.modal-contenido {
+    background: linear-gradient(to bottom, #ADD8E6, #4169E1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    /* Habilitar scroll vertical si el contenido es demasiado largo */
+}
+
+.tabla-verbo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-verbo th,
+.tabla-verbo td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.tabla-verbo tr:hover {
+    background-color: #ddd;
+}
+
+.cerrar-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.cerrar {
+    color: #FFF;
+    /* Texto blanco */
+    font-size: 24px;
+}
+
+.titulo-modal h2 {
+    color: #FFF;
+    /* Texto blanco */
+    font-family: 'Comic Sans MS', cursive;
+    margin-bottom: 10px;
+}
+
+.definicion p {
+    color: #FFF;
+    /* Texto blanco */
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.ejemplos h3 {
+    color: #FFF;
+    /* Texto blanco */
+    font-family: 'Comic Sans MS', cursive;
+    margin-bottom: 10px;
+}
+
+
+
+.modalp {
+    font-size: 16px;
+    color: #FFF;
+    /* Texto blanco */
+}
+
+
+.modalNext {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modalNext-content {
+    background: linear-gradient(to top, #f88f32, #ffbb77);
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease-out;
+    position: relative;
+}
+.modalNext.show {
+    opacity: 1;
+    display: flex;
+}
+
+.modalNext.hide {
+    opacity: 0;
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalNext-content p {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: bold;
+}
+/* Aplicar la animación a la flecha */
+#arrow-icon {
+    animation: moveArrow 2s ease infinite;
+}
+
+.word:hover {
+    background-color: #2980b9;
+    color: #EEEEFF;
+}
+
+.texto {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.messages {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: none;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+#correct-message {
+    background-color: #2ecc71;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#error-message {
+    background-color: #e74c3c;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#completed {
+    background-color: #3498db;
+    padding: 40px;
+    border-radius: 10px;
+}
+.selected {
+    border: 3px solid green; /* Cambia el borde a verde */
+    transform: scale(1.1); /* Agranda un poco la imagen */
+}
+
+
+
+.game-info {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 100px); /* Resta el ancho del contenedor de los corazones más un margen adicional */
+    justify-content: space-between;
+    padding: 0 20px; /* Agrega un relleno a los lados */
+     /* Ocupa todo el ancho disponible */
+    max-width: 1000px; /* Establece un ancho máximo */
+    margin: 0 auto;
+}
+
+
+.hearts-container p2 {
+    font-family: 'Inter', sans-serif; /* Cambia el tipo de letra a Inter */
+    font-size: 16px; /* Establece el tamaño del texto en 16px */
+    font-weight: 800; /* Establece el peso del texto en 800 (extrabold) */
+    color: #D67D7D;
+    
+}
+
+
+/* Estilos para los corazones o vidas del juego */
+.hearts-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ffffff; /* Agrega un borde al contenedor */
+    padding: 7px; /* Agrega espacio interno alrededor del contenido */
+    border-radius: 10px; /* Agrega bordes redondeados al contenedor */
+    background-color: #ffffff;
+        
+    
+}
+
+
+.heart {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+@keyframes vibrarLogo {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 599px) {
+    /* Ajustes específicos para dispositivos con anchura entre 301px y 899px */
+   .container{
+    margin-left: 5%;
+   }
+    .images {
+        width: 100%; /* Cambia a un porcentaje del ancho de la pantalla */
+       
+        margin-bottom: 50px; /* Ajusta el margen inferior */
+        margin-left: 70%;
+    }
+    .options {
+        width: 90%;
+        margin-top: -20px;
+        order: 2 !important; /* ¡Agrega !important para priorizar este estilo! */
+    }
+    .board {
+      
+        gap: 12px; /* Espacio entre elementos */
+    }
+
+    .card {
+        width: 110px;
+        height: 90px;
+    }
+    
+    .hearts-container p2 {
+        display: none; /* Oculta la palabra "Vidas" */
+    }
+
+    .modalNext-content p{
+        font-size: 0.8em;
+    }
+}

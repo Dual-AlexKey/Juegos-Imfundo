@@ -1,0 +1,539 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FBF2F2;
+    position: relative;
+}
+
+/* Estilos para el fondo con diseño */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('patron.png');
+    opacity: 0.5;
+    animation: animateBackground 1s linear infinite alternate;
+}
+.selected {
+    transform: scale(1.1);
+    border-color: rgb(153, 255, 0);
+    color: black !important;
+    background-color: rgb(210, 241, 197) !important;
+}
+.titulo-principal {
+    text-align: center;
+    color: rgba(120, 7, 7, 0.801);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 24px; /* Ajusta el tamaño según prefieras */
+    margin-top: 20px;
+}
+@keyframes animateBackground {
+    0% {
+        opacity: 0.5; /* Opacidad inicial */
+        transform: translateY(0); /* Sin movimiento inicial */
+    }
+    100% {
+        opacity: 0.6; /* Opacidad final */
+        transform: translateY(-10px); /* Movimiento hacia arriba */
+    }
+}
+.container {
+    background-image: linear-gradient(to right, #5f66e2, #414478);
+    border-radius: 0.4pc;
+    border: none;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 0 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: vibrarLogo 1s infinite alternate;
+}
+@keyframes bounceAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.modalNext {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.modalNext-content {
+    background: linear-gradient(to top, #f88f32, #ffbb77);
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease-out;
+    position: relative;
+}
+.modalNext.show {
+    opacity: 1;
+}
+
+.modalNext.hide {
+    opacity: 0;
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalNext-content p {
+    font-size: 0.8em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: bold;
+}
+
+
+
+
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+
+.card-container {
+    position: relative;
+}
+
+
+
+/* Estilos para el icono Mute */
+#mute-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: none;
+}
+
+/* Estilos cuando se pasa el cursor sobre el icono */
+#mute-icon:hover {
+    fill: #655d5d;
+}
+
+#sound-icon{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: block;
+}
+
+/* Estilos para el icono de flecha */
+#arrow-icon {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Animación para mover la flecha de izquierda a derecha */
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Aplicar la animación a la flecha */
+#arrow-icon {
+    animation: moveArrow 2s ease infinite;
+}
+
+.word:hover {
+    background-color: #2980b9;
+    color: #EEEEFF;
+}
+
+.texto {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+
+.word {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.word.correct {
+    background-color: green;
+    color: white;
+}
+
+.word.incorrect {
+    background-color: red;
+    color: white;
+}
+
+.heart.lost {
+    opacity: 0.2;
+}
+
+.heart {
+    transition: opacity 0.5s ease-out;
+}
+
+#gameOverModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.siguiente {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+@keyframes destroyAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+
+.info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 2cap;
+    width: 50%;
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+
+
+.oraciones {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: flex-start; /* Alínea los elementos en la parte superior */
+    margin-top: -60px;
+    margin-left: -17%;
+}
+
+
+/* Estilos para los contenedores vacíos */
+.contenedor {
+    display: inline-block;
+    vertical-align: middle;
+    width: 89px;
+    height: 20px;
+    border: 1px solid #000;
+    margin: 0 5px;
+    border-radius: 2cap;
+    position: relative;
+}
+
+/* Estilos para los botones dentro de los contenedores */
+.contenedor .boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 20px;
+    border-radius: 2cap;
+    background-color: #cdf68f;
+    font-size: 14px;
+}
+
+.destroyed {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    pointer-events: none;
+    cursor: default;
+}
+.rojo {
+    color: #7906065b;
+    font-size: 20px; /* Tamaño más grande */
+    font-weight: bold; /* Hacerlo más grueso */
+}
+.botones {
+    margin-top: 80px;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.botones button {
+    margin-bottom: 15px;
+    border-radius: 4cap;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 140px;
+    height: 30px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 10px rgba(6, 101, 202, 0.5);
+    background-color: rgb(211, 229, 245);
+    line-height: 0px; /* Ajusta este valor para elevar el texto */
+}
+
+.botones button:hover {
+    background-color: rgb(81, 157, 224);
+    color: white;
+}
+
+/* Modal */
+
+
+.game-info {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 100px); /* Resta el ancho del contenedor de los corazones más un margen adicional */
+    justify-content: space-between;
+    padding: 0 20px; /* Agrega un relleno a los lados */
+     /* Ocupa todo el ancho disponible */
+    max-width: 1000px; /* Establece un ancho máximo */
+    margin: 0 auto;
+}
+
+
+.hearts-container p {
+    font-family: 'Inter', sans-serif; /* Cambia el tipo de letra a Inter */
+    font-size: 16px; /* Establece el tamaño del texto en 16px */
+    font-weight: 800; /* Establece el peso del texto en 800 (extrabold) */
+    color: #D67D7D;
+    
+}
+
+
+/* Estilos para los corazones o vidas del juego */
+.hearts-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #FFFFFF; /* Agrega un borde al contenedor */
+    padding: 4px; /* Agrega espacio interno alrededor del contenido */
+    border-radius: 10px; /* Agrega bordes redondeados al contenedor */
+    background-color: #FFFFFF;
+        
+    
+}
+
+
+.heart {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+
+@keyframes vibrarLogo {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.siguiente {
+    
+    padding: 10px 20px; /* Ajusta el relleno del botón */
+    font-size: 16px; /* Ajusta el tamaño del texto del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    transition: background-color 0.3s; /* Agrega una transición suave al color de fondo del botón */
+    left: 50%;
+    transform: translateX(70%);
+    margin-top: 10px;
+   
+}
+
+.siguiente:hover {
+    background-color: #0056b3; /* Cambia el color de fondo del botón al pasar por encima */
+}
+.images {
+    display: flex; /* Usa flexbox para alinear los elementos horizontalmente */
+    flex-direction: column; /* Coloca los elementos uno encima del otro */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+.images {
+    flex: 1;
+    padding-right: 20px;
+    padding-top: 22px;
+}
+.text-container {
+    flex: 1;
+    padding-right: 30px;
+}
+.card {
+    width: 260px;
+    height: 260px;
+    border-radius: 6%;
+    margin: 10px auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+
+    
+}
+
+.card img {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+    max-height: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+    border-radius: 6%; /* Hace que la imagen dentro del círculo sea redonda */
+    object-fit: cover; /* Asegura que la imagen se ajuste correctamente al contenedor */
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+.text-container {
+    flex-grow: 1;
+}
+
+.options {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: -40px;
+}
+.content-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 60px;
+}
+.description {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #333;
+}
+@media (min-width: 1310px) {
+    body {
+        margin: 0;
+    }
+.modalNext-content p{
+    font-size: 1.5em;
+}
+    .container {
+        max-width: 1289px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .texto {
+        font-size: 18px;
+    }
+
+
+    .info {
+        margin-left: auto;
+        width: 200px;
+        justify-content: center;
+    }
+
+    .info p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .info svg {
+        margin-left: 5px;
+    }
+
+  
+   
+
+}
