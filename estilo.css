@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.white-container {
+  flex: 3.5;
+  background-color: white;
+  text-align: center;
+  padding: 10vh 10vw;
+}
+
+.locked::before {
+  content: url('./imagen/candado.png');
+}
+
+.orange-container {
+  flex: 5;
+  background-color: #E74424;
+  text-align: center;
+  padding: 10vh 10vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  margin-top: 5vh;
+  text-align: center;
+}
+.button-container button {
+  margin-bottom: 15px;
+  display: block;
+  cursor: pointer;
+  padding: 2.5vw 17vw;
+  border: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  animation: vibrarLogo 1.0s infinite alternate;
+  color: #1D4989;
+  font-size: 2.2vw;
+}
+
+.button-container button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+/* estilo.css */
+.blocked {
+  opacity: 0.5;
+  pointer-events: none; /* Evita que los botones bloqueados sean clicables */
+}
+
+.flecha-img {
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.flecha-img:hover {
+  transform: scale(1.1);
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #1D4989;
+  font-size: 8.2vw;
+  line-height: 1.2;
+  margin-top: 8%;
+}
+
+.orange-container svg {
+  width: 50px;
+  height: 50px;
+}
+
+.orange-container svg path:first-child {
+  fill: #0059ff;
+}
+
+.orange-container svg path:last-child {
+  fill: #fff;
+}
+
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+
+  animation: aparecer 1s ease forwards;
+  animation: vibrarLogo 0.5s infinite alternate;
+}
+
+.white-container,
+.orange-container {
+  border: 5px solid transparent;
+  animation: bordeAnimado 2s ease infinite;
+}
+
+
+
+
+.logo-img {
+
+  margin-top: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  animation: vibrarLogo 1.0s infinite alternate;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes vibrarLogo {
+  0% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(3px);
+  }
+}
+
+.locked {
+  background-color: #ddd;
+  pointer-events: none;
+}
+
+.unlocked {
+  color: white;
+}
+
+@media (min-width: 820px) {
+  body {
+    flex-direction: row;
+  }
+
+  .button-container button {
+    padding: 1.3vw 10vw;
+
+  }
+
+  .button-container button {
+    margin-bottom: 15px;
+    display: block;
+    cursor: pointer;
+    padding: 1.1vw 10vw;
+    border: none;
+    border-radius: 50px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color: #1D4989;
+    font-size: 1.3vw;
+
+  }
+  
+  h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color: #1D4989;
+    font-size: 4.2vw;
+    line-height: 1.2;
+    margin-top: 8%;
+  }
+
+}
+
+.white-container,
+.orange-container {
+  border: 5px solid transparent;
+  animation: aparecer 3s;
+}

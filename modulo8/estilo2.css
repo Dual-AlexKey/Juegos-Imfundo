@@ -1,0 +1,975 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FBF2F2;
+    /* Color de fondo de la página */
+    /* Evita el desbordamiento del fondo animado */
+    position: relative;
+}
+
+.modal2-content {
+    background-color: #f0f0f0;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.characters-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    width: 100%;
+    /* Establece un tamaño fijo para el contenedor de la imagen */
+    height: 40px;
+    /* Establece un tamaño fijo para el contenedor de la imagen */
+    border-radius: 10px;
+    /* Hace que el contenedor de la imagen sea circular */
+    display: flex;
+    /* Activa el modelo de caja flexible */
+    justify-content: center;
+    /* Centra horizontalmente la imagen */
+    align-items: center;
+    /* Centra verticalmente la imagen */
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #F07D36 0%, #FA6F19 50.5%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+.datos {
+    text-align: left;
+}
+
+.datos p {
+    margin: 3px 0;
+    /* Reduciendo el margen de los párrafos */
+    font-size: 14px;
+    /* Reduciendo el tamaño de la fuente */
+}
+
+.modal2-content h2 {
+
+    color: #03a9f4;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+/* Estilos para el fondo con diseño */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('patron.png');
+    /* Ruta de la imagen de fondo con diseño */
+    opacity: 0.5;
+    /* Opacidad inicial */
+    animation: animateBackground 1s linear infinite alternate;
+    /* Animación del fondo */
+}
+
+@keyframes animateBackground {
+    0% {
+        opacity: 0.5;
+        /* Opacidad inicial */
+        transform: translateY(0);
+        /* Sin movimiento inicial */
+    }
+
+    100% {
+        opacity: 0.6;
+        /* Opacidad final */
+        transform: translateY(-10px);
+        /* Movimiento hacia arriba */
+    }
+}
+
+.container {
+    background-image: linear-gradient(to right, #5f66e2, #414478);
+    border-radius: 0.4pc;
+    border: none;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 0 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: vibrarLogo 1s infinite alternate;
+}
+
+.correct {
+    border: 2px solid green;
+    /* Cambia esto según tu diseño */
+    transition: border 0.3s ease;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes bounceAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.images,
+.options {
+    width: 33%;
+    margin: 1%;
+}
+
+.images {
+    margin-top: 100px;
+    margin-right: 250px;
+    margin-left: -180px;
+    /* Margen superior para evitar que las imágenes se superpongan al banner */
+    /* Margen inferior para evitar que las imágenes se superpongan al encabezado del juego */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Divide en tres columnas */
+    gap: 20px;
+    /* Espacio entre elementos */
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Divide en tres columnas */
+    gap:10px;
+    /* Espacio entre elementos */
+}
+
+.card {
+    width: 150px;
+    height: 220px;
+    margin-top: 3px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+
+.word {
+    border: 2px solid #2980b9;
+    text-align: center;
+    /* Centra el texto */
+    background-color: #EEEEFF;
+    color: #3F3BE1;
+    max-width: 150px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    /* Cambios en el tipo de letra, tamaño y peso */
+    font-family: 'Inter', sans-serif;
+    /* Cambia el tipo de letra a Inter */
+    font-size: 16px;
+    /* Establece el tamaño del texto en 20px */
+    font-weight: 500;
+    /* Establece el peso del texto en 500 (medium) */
+}
+
+/* Estilos para el icono Mute */
+#mute-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: none;
+}
+
+/* Estilos cuando se pasa el cursor sobre el icono */
+#mute-icon:hover {
+    fill: #655d5d;
+}
+
+#sound-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: #000000;
+    display: block;
+}
+
+/* Estilos para el icono de flecha */
+#arrow-icon {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Animación para mover la flecha de izquierda a derecha */
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Aplicar la animación a la flecha */
+#arrow-icon {
+    animation: moveArrow 2s ease infinite;
+}
+
+.word:hover {
+    background-color: #2980b9;
+    color: #EEEEFF;
+}
+
+.texto {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    ;
+
+}
+
+.messages {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: none;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+#correct-message {
+    background-color: #2ecc71;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#error-message {
+    background-color: #e74c3c;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#completed {
+    background-color: #3498db;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.selected {
+    border: 3px solid green;
+    /* Cambia el borde a verde */
+    transform: scale(1.1);
+    /* Agranda un poco la imagen */
+}
+
+.destroyed {
+    opacity: 0.5;
+    /* Reducir la opacidad */
+    filter: grayscale(100%);
+    /* Convertir la imagen en escala de grises */
+    pointer-events: none;
+    /* Desactivar los eventos del mouse */
+    cursor: default;
+    /* Cambiar el cursor a predeterminado */
+    /* También puedes añadir otras propiedades de estilo según sea necesario */
+}
+
+.action-text {
+    position: absolute;
+    bottom: 5px;
+    /* Ajusta la posición del texto */
+    left: 50%;
+    /* Centra el texto horizontalmente */
+    transform: translateX(-50%);
+    /* Centra el texto horizontalmente */
+    display: none;
+    /* Oculta el texto inicialmente */
+}
+
+.card.destroyed .action-text {
+    display: block;
+    /* Muestra el texto cuando la carta está destruida */
+    color: white;
+    /* Cambia el color del texto */
+}
+
+@keyframes destroyAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+
+.info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 2cap;
+    width: 50%;
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+
+
+.oraciones {
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: flex-start;
+    /* Alínea los elementos en la parte superior */
+    margin-top: -60px;
+    margin-left: 17%;
+}
+
+
+/* Estilos para los contenedores vacíos */
+.contenedor {
+    display: inline-block;
+    vertical-align: middle;
+    width: 89px;
+    height: 40px;
+    border: 1px solid #000;
+    margin: 0 5px;
+    border-radius: 2cap;
+    position: relative;
+}
+
+/* Estilos para los botones dentro de los contenedores */
+.contenedor .boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 40px;
+    border-radius: 2cap;
+    background-color: greenyellow;
+    font-size: 15px;
+}
+
+.botones {
+    margin-top: 80px;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.botones button {
+    margin-bottom: 15px;
+    border-radius: 4cap;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+    margin-right: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*/
+
+/* Modal */
+
+.modalNext {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.modalNext-content {
+    background: linear-gradient(to top, #f88f32, #ffbb77);
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease-out;
+    position: relative;
+}
+
+.modalNext.show {
+    opacity: 1;
+}
+
+.modalNext.hide {
+    opacity: 0;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalNext-content p {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: bold;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 100px);
+    /* Resta el ancho del contenedor de los corazones más un margen adicional */
+    justify-content: space-between;
+    padding: 0 20px;
+    /* Agrega un relleno a los lados */
+    /* Ocupa todo el ancho disponible */
+    max-width: 1000px;
+    /* Establece un ancho máximo */
+    margin: 0 auto;
+}
+
+
+.hearts-container p2 {
+    font-family: 'Inter', sans-serif;
+    /* Cambia el tipo de letra a Inter */
+    font-size: 16px;
+    /* Establece el tamaño del texto en 16px */
+    font-weight: 800;
+    /* Establece el peso del texto en 800 (extrabold) */
+    color: #D67D7D;
+
+}
+
+
+/* Estilos para los corazones o vidas del juego */
+.hearts-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #FFFFFF;
+    /* Agrega un borde al contenedor */
+    padding: 7px;
+    /* Agrega espacio interno alrededor del contenido */
+    border-radius: 10px;
+    /* Agrega bordes redondeados al contenedor */
+    background-color: #FFFFFF;
+
+
+}
+
+
+.heart {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+
+@keyframes vibrarLogo {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.character-name {
+    font-size: 1.2rem;
+    color: #3f51b5;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.characteristics {
+    font-size: 0.9rem;
+    text-align: left;
+    height: 85%;
+    overflow-y: auto;
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.characteristics div {
+    background-color: #3f51b5;
+    color: #ffffff;
+    padding: 2px 5px;
+    margin: 2px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.characteristics div.correct {
+    background-color: #4caf50;
+}
+
+.characteristics div.incorrect {
+    background-color: #f44336;
+}
+
+/* Positioning cards in an inverted triangle pattern */
+
+
+
+@media (min-width: 1310px) {
+    body {
+        margin: 0;
+    }
+
+    .container {
+        max-width: 1289px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .texto {
+        font-size: 18px;
+    }
+
+
+    .info {
+        margin-left: auto;
+        width: 200px;
+        justify-content: center;
+    }
+
+    .info p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .info svg {
+        margin-left: 5px;
+    }
+
+    .oraciones {
+        margin-left: 10%;
+        float: left;
+    }
+
+    .oraciones p {
+        font-size: 25px;
+    }
+
+    .botones {
+        margin-top: 50px;
+        margin-right: 200px;
+        float: right;
+        flex-direction: column;
+
+    }
+
+    .botones button {
+        margin-bottom: 45px;
+    }
+
+    .oraciones {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .card {
+        position: relative;
+        width: 150px;
+        height: 420px;
+        margin: 10px;
+        padding: 10px;
+        padding-right: 16px;
+        border-radius: 10px;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        justify-content: center;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .character-name {
+        font-size: 1.2rem;
+        color: #3f51b5;
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+
+    .characteristics {
+        font-size: 0.9rem;
+        text-align: left;
+        height: 85%;
+        overflow-y: auto;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .characteristics div {
+        background-color: transparent;
+        color: black;
+        padding: 2px 5px;
+        margin: 2px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+        font-weight: bold;
+    }
+
+    .characteristics div.correct {
+        background-color: #4caf50;
+    }
+
+    .characteristics div.incorrect {
+        background-color: #f44336;
+    }
+
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1309px) {
+    body {
+        margin: 0;
+    }
+
+    .images {
+        /* Ajusta el margen derecho para mover las imágenes hacia el lado */
+        margin-left: -290px;
+        /* Margen izquierdo para evitar que las imágenes se superpongan al banner */
+    }
+
+    .container {
+        max-width: 1289px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Divide en tres columnas */
+        gap: 20px;
+        /* Espacio entre elementos */
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* Divide en tres columnas */
+        gap: 8px;
+        /* Espacio entre elementos */
+    }
+
+
+    .card {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .character-name {
+        font-size: 1.2rem;
+        color: #3f51b5;
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+
+    .characteristics {
+        font-size: 0.9rem;
+        text-align: left;
+        overflow-y: auto;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 85%;
+        overflow: hidden;
+    }
+
+    .characteristics div {
+        background-color: transparent;
+        color: black;
+        padding: 2px 5px;
+        margin: 2px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+        font-weight: bold;
+    }
+
+    .characteristics div.correct {
+        background-color: #4caf50;
+    }
+
+    .characteristics div.incorrect {
+        background-color: #f44336;
+    }
+
+
+    .oraciones {
+        margin-left: 20%;
+        float: left;
+    }
+
+}
+
+
+@media screen and (min-width: 680px) and (max-width: 1100px) {
+    /* Ajustes específicos para dispositivos con anchura entre 301px y 899px */
+
+
+    .container {
+        max-width: 90%;
+        /* Cambia a un porcentaje del ancho de la pantalla */
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .options {
+        width: 90%;
+        margin-top: -20px;
+        order: 2 !important;
+        /* ¡Agrega !important para priorizar este estilo! */
+    }
+
+    .modalNext-content p {
+        font-size: 0.8em;
+    }
+    .oraciones p {
+        font-size: 25px;
+        /* Ajusta el tamaño de fuente de las oraciones */
+    }
+
+    .botones {
+        text-align: center;
+        /* Centra los botones horizontalmente */
+        margin-top: 20px;
+        /* Ajusta el margen superior de los botones */
+    }
+
+
+
+    /* Oculta el icono de mute */
+    .mute-button {
+        display: none;
+    }
+
+    .card {
+        width: 100%;
+        /* Cambia a un porcentaje del ancho de la pantalla */
+        /* Permite que la altura se ajuste automáticamente */
+        max-width: 200px;
+        /* Establece un ancho máximo para las tarjetas */
+        margin-top: -20px;
+        /* Ajusta el margen superior */
+        margin-bottom: 20px;
+        /* Ajusta el margen inferior */
+        margin-left: auto;
+        /* Centra horizontalmente */
+        margin-right: auto;
+        /* Centra horizontalmente */
+    }
+
+    .card {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .character-name {
+        font-size: 1.2rem;
+        color: #3f51b5;
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+
+    .characteristics {
+        font-size: 0.9rem;
+        text-align: left;
+        height: 80px;
+        overflow-y: auto;
+        background-image: linear-gradient(to top, #d3d5fd, #ffffff);
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .characteristics div {
+        background-color: transparent;
+        color: black;
+        padding: 2px 5px;
+        margin: 2px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+        font-weight: bold;
+    }
+
+    .images {
+        width: 100%;
+        /* Cambia a un porcentaje del ancho de la pantalla */
+
+        margin-bottom: 50px;
+        /* Ajusta el margen inferior */
+        margin-left: -160px;
+        margin-right: 30px;
+    }
+
+    .hearts-container p2 {
+        display: none;
+        /* Oculta la palabra "Vidas" */
+    }
+}
