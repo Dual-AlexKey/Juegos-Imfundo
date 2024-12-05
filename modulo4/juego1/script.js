@@ -32,11 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const sentences = shuffleSentences([
-        { words: ["ayer", "estuve", "en", "mi", "casa"], correctOrder: "ayer estuve en mi casa" },
-        { words: ["he", "estado", "en", "la", "cocina", "toda", "la", "mañana"], correctOrder: "he estado en la cocina toda la mañana" },
-        { words: ["mañana", "estaré", "en", "el", "parque", "con", "mis", "amigos"], correctOrder: "mañana estaré en el parque con mis amigos" },
-        { words: ["estuve", "trabajando", "todo", "el", "día", "en", "ese", "proyecto"], correctOrder: "estuve trabajando todo el día en ese proyecto" }
+        { words: ["estuve", "en", "la", "escuela"], correctOrder: "estuve en la escuela" },
+        { words: ["estaba", "en", "mi", "cuarto"], correctOrder: "estaba en mi cuarto" },
+        { words: ["he", "estado", "muy", "ocupado"], correctOrder: "he estado muy ocupado" },
+        { words: ["estoy", "en", "el", "jardín"], correctOrder: "estoy en el jardín" }
     ]);
+    
 
     function loadSentence() {
         const wordBank = document.getElementById('word-bank');
