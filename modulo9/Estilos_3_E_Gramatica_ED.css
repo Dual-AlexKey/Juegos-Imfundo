@@ -19,7 +19,7 @@ body {
     animation: vibrarLogo 1s infinite alternate;
 }
 .rojo {
-    color: ##06812b;
+    color: #06812b;
     font-size: 12px; /* Tamaño más grande */
     font-weight: bold; /* Hacerlo más grueso */
 }
