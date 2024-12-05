@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 6</title>
+  <link rel="stylesheet" href="../moduloEstilo.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../imagen/logo.ico" type="imagen/x-icon">
+</head>
+
+<body>
+  <div class="white-container">
+    <h1>Nuestro mundo</h1>
+    <div class="descripcion_juegos">
+      <h2>Contenido del Módulo:</h2>
+      <p>Expresar sentimientos y opiniones</p>
+      <p>Vocabulario</p>
+      <p>Aporte Cultural: Maravillas del mundo</p>
+      
+    </div>
+    <img src="../imagen/Logo_VIVA_IDIOMAS.png" alt="Imagen" style="margin-top: 50px;" class="logo-img">
+
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="arrow-icon">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+
+    </svg>
+  </div>
+  <div class="orange-container">
+    <div class="button-container">
+      <h1 class="ttl_mod1">MÓDULO 6</h1>
+    </div>
+    <div>
+      <p class="parrafo">¿Estás listo para demostrar cuánto has aprendido y superar los desafíos de la trivia?</p>
+    </div>
+    <div>
+      <button class="btn_mod1" style="border-radius: 15pc; height: 250px; width: 250px;"onclick="window.location.href='game1.html'">EMPEZAR JUEGO</button>
+    </div>
+  </div>
+  <audio id="audioElement" autoplay loop>
+    <source src="../audio/inicio.mp3" type="audio/mp3">
+  </audio>
+
+  <script>var audio = document.getElementById('audioElement');
+    audio.volume = 0.2;
+
+    const arrowIcon = document.getElementById('arrow-icon');
+
+    arrowIcon.addEventListener('click', function () {
+      window.location.href = '../index.html';
+    });
+  </script>
+</body>
+
+</html>
