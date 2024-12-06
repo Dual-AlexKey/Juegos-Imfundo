@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reto 1</title>
-    <link rel="stylesheet" href="./estilo1.css">
+    <title>Reto 3</title>
+    <link rel="stylesheet" href="./estilo3.css">
     <link rel="stylesheet" href="../modal/syle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,13 +19,18 @@
 <body>
     <div class="container">
         <div class="game-info">
-            <p class="texto">¡Reto 1: Relaciona las frases con su respectivo uso!</p>
+            <p class="texto">¡Reto 3: Relaciona cada palabra con el recuadro con su fotografía!</p>
             <!-- Contenido del banner, como el título del juego y la descripción -->
             <div class="menu-container">
+
             </div>
+
             <div class="game-controls">
+
+
                 <div class="hearts-container">
                     <p2>Vidas</p2>
+
                     <span class="heart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                             style="fill: rgba(214, 125, 125, 1);">
@@ -56,36 +61,39 @@
         <div class="images">
             <div class="board">
                 <!-- Imágenes -->
-                <div class="card" data-word="1">
-                    <div class="imagen-alimento"><img src="../imagen/M7_1.png" alt="Amazonas"></div>
-                    <div class="characteristics">De niño, me  encantaba que mis  padres me llevaran a  las montañas.</div>
+                <div class="card" data-word="Circo">
+                    <img src="../imagen/Circo.png" alt="">
                 </div>
-                <div class="card" data-word="2">
-                    <div class="imagen-alimento"><img src="../imagen/M7_2.png" alt="Pacifico"></div>
-                    <div class="characteristics">Si fuera presidente  de mi país, mejoraría   el sistema de salud.</div>
+                <div class="card" data-word="Concierto">
+                    <img src="../imagen/Concierto.png" alt="">
                 </div>
-                <div class="card" data-word="3">
-                    <div class="imagen-alimento"><img src="../imagen/M7_3.png" alt="Andes"></div>
-                    <div class="characteristics">Quisiera pedir  un silpancho, por  favor.</div>
+                <div class="card" data-word="Opera">
+                    <img src="../imagen/Opera.png" alt="">
                 </div>
-                <div class="card" data-word="4">
-                    <div class="imagen-alimento"><img src="../imagen/M7_4.png" alt="Colca"></div>
-                    <div class="characteristics">Mi abuela no creía  que fuera a visitarla  por su cumpleaños.</div>
+                <div class="card" data-word="Cine">
+                    <img src="../imagen/Cine.png" alt="">
+                </div>
+                <div class="card" data-word="Pinturas">
+                    <img src="../imagen/Pinturas.png" alt="">
+                </div>
+                <div class="card" data-word="Estadio">
+                    <img src="../imagen/Estadio.png" alt="">
                 </div>
                 <!-- Agrega más cartas aquí -->
-            </div>  
+            </div>
         </div>
     </div>
     <div class="options">
         <!-- Opciones -->
-        <div class="word" data-word="2">Para situaciones hipotéticas.</div>
-        <div class="word" data-word="4">Para expresar duda en el pasado.</div>
-        <div class="word" data-word="1">Para oraciones subordinadas con el verbo principal en pasado.</div>
-        <div class="word" data-word="3">Para expresar cortesía al pedir algo.</div>
+        <div class="word" data-word="Cine">Cine</div>
+        <div class="word" data-word="Estadio">Estadio</div>
+        <div class="word" data-word="Circo">Circo</div>
+        <div class="word" data-word="Opera">Ópera</div>
+        <div class="word" data-word="Concierto">Concierto</div>
+        <div class="word" data-word="Pinturas">Exposición de pinturas</div>
         <!-- Agrega más opciones aquí -->
     </div>
 
-    
     <div class="messages">
         <div id="correct-message">¡Correcto!</div>
         <div id="error-message">¡Incorrecto!</div>
@@ -106,7 +114,7 @@
     <div id="modal" class="modalNext">
         <div class="modalNext-content">
             <p>¡BIEN HECHO!</p>
-            <p>¡RETO 1 COMPLETADO!</p>
+            <p>¡RETO 3 COMPLETADO!</p>
         </div>
     </div>
 
@@ -151,6 +159,6 @@
     <audio id="audioIncorrecto" src="../audio/incorrecto.mp3"></audio>
     <audio id="audioGameOver" src="../audio/gameover.mp3"></audio>
 
-    <script src="sc1.js"></script>
+    <script src="sc3.js"></script>
 </body>
 </html>

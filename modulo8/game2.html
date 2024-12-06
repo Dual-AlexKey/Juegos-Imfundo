@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reto 1</title>
-    <link rel="stylesheet" href="./estilo1.css">
+    <title>Reto 2</title>
+    <link rel="stylesheet" href="./estilo2.css">
     <link rel="stylesheet" href="../modal/syle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,20 +20,10 @@
     <div class="container">
 
         <div class="game-info">
-            <p class="texto">¡Reto 1: Clasifica los alimentos en la columna correspondiente!</p>
-            
-            
-            
-            
-            <!-- Contenido del banner, como el título del juego y la descripción -->
-         
-
+            <p class="texto">¡Reto 2: Coloca las palabras en la columna correspondiente!</p>
             <div class="game-controls">
-
-
                 <div class="hearts-container">
                     <p2>Vidas</p2>
-
                     <span class="heart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                             style="fill: rgba(214, 125, 125, 1);">
@@ -58,36 +48,22 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <div class="oraciones">
         <div class="images">
             <div class="board">
                 <!-- Personajes -->
-                <div class="card" data-character="Carnes" data-characteristics="Lomo,Filete">
-                    <div class="imagen-alimento"><img src="../imagen/Carnes.png" alt="Carnes"></div>
+                <div class="card" data-character="deporte" data-characteristics="natacion,tenis,ciclismo,futbol,boxeo,golf">
+                    <div class="category">DEPORTE</div>
                     <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
                 </div>
-                <div class="card" data-character="Legumbres" data-characteristics="Lentejas,Frijoles">
-                    <div class="imagen-alimento"><img src="../imagen/Legumbres.png" alt="Legumbres"></div>
+                <div class="card" data-character="lugar" data-characteristics="ring,piscina,pista,estadio">
+                    <div class="category">LUGAR</div>
                     <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
                 </div>
-                <div class="card" data-character="Pescado" data-characteristics="Trucha,Mejillones">
-                    <div class="imagen-alimento"><img src="../imagen/Pescados.png" alt="Pescado"></div>
-                    <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
-                </div>
-                <div class="card" data-character="Embutidos" data-characteristics="Salchicha,Morcilla">
-                    <div class="imagen-alimento"><img src="../imagen/Embutidos.png" alt="Embutidos"></div>
-                    <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
-                </div>
-                <div class="card" data-character="Lacteos" data-characteristics="Leche,Queso">
-                    <div class="imagen-alimento"><img src="../imagen/Lacteos.png" alt="Lácteos"></div>
-                    <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
-                </div>
-                <div class="card" data-character="Vegetales" data-characteristics="Berenjena,Lechuga">
-                    <div class="imagen-alimento"><img src="../imagen/Vegetales.png" alt="Vegetales"></div>
+                <div class="card" data-character="equipamiento" data-characteristics="guantes,casco,raqueta,botas,palos,bañador">
+                    <div class="category">EQUIPAMIENTO</div>
                     <div class="characteristics"></div> <!-- Cuadro de características asociadas -->
                 </div>
                 <!-- Agrega más cartas de personajes aquí -->
@@ -96,18 +72,22 @@
     </div>
     <div class="options">
         <!-- Opciones de características -->
-        <div class="word" data-characteristic="Leche">Leche</div>
-        <div class="word" data-characteristic="Lentejas">Lentejas</div>
-        <div class="word" data-characteristic="Trucha">Trucha</div>
-        <div class="word" data-characteristic="Morcilla">Morcilla</div>
-        <div class="word" data-characteristic="Berenjena">Berenjena</div>
-        <div class="word" data-characteristic="Filete">Filete</div>
-        <div class="word" data-characteristic="Queso">Queso</div>
-        <div class="word" data-characteristic="Frijoles">Frijoles</div>
-        <div class="word" data-characteristic="Mejillones">Mejillones</div>
-        <div class="word" data-characteristic="Salchicha">Salchicha</div>
-        <div class="word" data-characteristic="Lechuga">Lechuga</div>
-        <div class="word" data-characteristic="Lomo">Lomo</div>
+        <div class="word" data-characteristic="natacion">Natación</div>
+        <div class="word" data-characteristic="guantes">Guantes</div>
+        <div class="word" data-characteristic="tenis">Tenis</div>
+        <div class="word" data-characteristic="ring">Ring</div>
+        <div class="word" data-characteristic="casco">Casco</div>
+        <div class="word" data-characteristic="futbol">Fútbol</div>
+        <div class="word" data-characteristic="ciclismo">Ciclismo</div>
+        <div class="word" data-characteristic="piscina">Piscina</div>
+        <div class="word" data-characteristic="raqueta">Raqueta</div>
+        <div class="word" data-characteristic="boxeo">Boxeo</div>
+        <div class="word" data-characteristic="pista">Pista</div>
+        <div class="word" data-characteristic="golf">Golf</div>
+        <div class="word" data-characteristic="botas">Botas</div>
+        <div class="word" data-characteristic="estadio">Estadio</div>
+        <div class="word" data-characteristic="palos">Palos</div>
+        <div class="word" data-characteristic="bañador">Bañador</div>
         <!-- Agrega más opciones de características aquí -->
     </div>
    
@@ -152,7 +132,7 @@
     <div id="modal" class="modalNext">
         <div class="modalNext-content">
             <p>¡BIEN HECHO!</p>
-            <p>¡RETO 1 COMPLETADO!</p>
+            <p>¡RETO 2 COMPLETADO!</p>
         </div>
     </div>
     
@@ -177,6 +157,6 @@
     <audio id="audioIncorrecto" src="../audio/incorrecto.mp3"></audio>
     <audio id="audioGameOver" src="../audio/gameover.mp3"></audio>
     
-    <script src="sc1.js"></script>
+    <script src="sc2.js"></script>
     </body>
     </html>
