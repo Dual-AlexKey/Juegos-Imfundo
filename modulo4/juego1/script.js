@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const sentences = shuffleSentences([
-        { words: ["estuve", "en", "la", "escuela"], correctOrder: "estuve en la escuela" },
-        { words: ["estaba", "en", "mi", "cuarto"], correctOrder: "estaba en mi cuarto" },
-        { words: ["he", "estado", "muy", "ocupado"], correctOrder: "he estado muy ocupado" },
-        { words: ["estoy", "en", "el", "jardín"], correctOrder: "estoy en el jardín" }
+        { words: ["Estuve", "en", "la", "escuela"], correctOrder: "Estuve en la escuela" },
+        { words: ["Estaba", "en", "mi", "cuarto"], correctOrder: "Estaba en mi cuarto" },
+        { words: ["He", "estado", "muy", "ocupado"], correctOrder: "He estado muy ocupado" },
+        { words: ["Estoy", "en", "el", "jardín"], correctOrder: "Estoy en el jardín" }
     ]);
     
 
